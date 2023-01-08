@@ -20,7 +20,7 @@ export default class Room {
         };
 
         this.setModel();
-        this.setAnimation();
+        // this.setAnimation();
         this.onMouseMove();
     }
 
@@ -38,15 +38,15 @@ export default class Room {
 
             // console.log(child);
 
-            if (child.name === "Aquarium") {
-                // console.log(child);
-                child.children[0].material = new THREE.MeshPhysicalMaterial();
-                child.children[0].material.roughness = 0;
-                child.children[0].material.color.set(0x549dd2);
-                child.children[0].material.ior = 3;
-                child.children[0].material.transmission = 1;
-                child.children[0].material.opacity = 1;
-            }
+            // if (child.name === "Aquarium") {
+            //     // console.log(child);
+            //     child.children[0].material = new THREE.MeshPhysicalMaterial();
+            //     child.children[0].material.roughness = 0;
+            //     child.children[0].material.color.set(0x549dd2);
+            //     child.children[0].material.ior = 3;
+            //     child.children[0].material.transmission = 1;
+            //     child.children[0].material.opacity = 1;
+            // }
 
             if (child.name === "Computer") {
                 child.children[1].material = new THREE.MeshBasicMaterial({
@@ -54,11 +54,14 @@ export default class Room {
                 });
             }
 
-            if (child.name === "Mini_Floor") {
-                child.position.x = -0.289521;
-                child.position.z = 8.83572;
+            if (child.name === "Computer1") {
+                child.children[1].material = new THREE.MeshBasicMaterial({
+                    map: this.resources.items.screen1,
+                });
             }
 
+
+           
             // if (
             //     child.name === "Mailbox" ||
             //     child.name === "Lamp" ||
@@ -106,11 +109,11 @@ export default class Room {
         this.actualRoom.scale.set(0.11, 0.11, 0.11);
     }
 
-    setAnimation() {
-        this.mixer = new THREE.AnimationMixer(this.actualRoom);
-        this.swim = this.mixer.clipAction(this.room.animations[0]);
-        this.swim.play();
-    }
+    // setAnimation() {
+    //     this.mixer = new THREE.AnimationMixer(this.actualRoom);
+    //     this.swim = this.mixer.clipAction(this.room.animations[0]);
+    //     this.swim.play();
+    // }
 
     onMouseMove() {
         window.addEventListener("mousemove", (e) => {

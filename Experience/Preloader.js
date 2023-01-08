@@ -46,38 +46,19 @@ export default class Preloader extends EventEmitter {
                 onComplete: () => {
                     document
                         .querySelector(".preloader")
-                        .classList.add("hidden");
+                     
                 },
             });
             if (this.device === "desktop") {
                 this.timeline
-                    .to(this.roomChildren.cube.scale, {
-                        x: 1.4,
-                        y: 1.4,
-                        z: 1.4,
-                        ease: "back.out(2.5)",
-                        duration: 0.7,
-                    })
+                    
                     .to(this.room.position, {
                         x: -1,
                         ease: "power1.out",
-                        duration: 0.7,
+                      
                     });
-            } else {
-                this.timeline
-                    .to(this.roomChildren.cube.scale, {
-                        x: 1.4,
-                        y: 1.4,
-                        z: 1.4,
-                        ease: "back.out(2.5)",
-                        duration: 0.7,
-                    })
-                    .to(this.room.position, {
-                        z: -1,
-                        ease: "power1.out",
-                        duration: 0.7,
-                    });
-            }
+           } 
+
             this.timeline
                 .to(".intro-text .animatedis", {
                     yPercent: 0,
@@ -133,22 +114,7 @@ export default class Preloader extends EventEmitter {
                     },
                     "same"
                 )
-                .to(
-                    this.roomChildren.cube.rotation,
-                    {
-                        y: 2 * Math.PI + Math.PI / 4,
-                    },
-                    "same"
-                )
-                .to(
-                    this.roomChildren.cube.scale,
-                    {
-                        x: 10,
-                        y: 10,
-                        z: 10,
-                    },
-                    "same"
-                )
+               
                 .to(
                     this.camera.orthographicCamera.position,
                     {
@@ -156,30 +122,14 @@ export default class Preloader extends EventEmitter {
                     },
                     "same"
                 )
-                .to(
-                    this.roomChildren.cube.position,
-                    {
-                        x: 0.638711,
-                        y: 8.5618,
-                        z: 1.3243,
-                    },
-                    "same"
-                )
+               
+                // ruangan dari rumah
                 .set(this.roomChildren.body.scale, {
                     x: 1,
                     y: 1,
                     z: 1,
                 })
-                .to(
-                    this.roomChildren.cube.scale,
-                    {
-                        x: 0,
-                        y: 0,
-                        z: 0,
-                        duration: 1,
-                    },
-                    "introtext"
-                )
+                
                 .to(
                     ".hero-main-title .animatedis",
                     {
@@ -216,115 +166,109 @@ export default class Preloader extends EventEmitter {
                     },
                     "introtext"
                 )
+    
                 .to(
-                    this.roomChildren.aquarium.scale,
+                    this.roomChildren.desk.scale,
                     {
-                        x: 1,
-                        y: 1,
-                        z: 1,
+                        x: 4.90899,
+                        y: 5.52173,
+                        z:5.42173,
                         ease: "back.out(2.2)",
-                        duration: 0.5,
+                     
                     },
-                    ">-0.5"
-                )
-                .to(
-                    this.roomChildren.clock.scale,
-                    {
-                        x: 1,
-                        y: 1,
-                        z: 1,
-                        ease: "back.out(2.2)",
-                        duration: 0.5,
-                    },
-                    ">-0.4"
-                )
-                .to(
-                    this.roomChildren.shelves.scale,
-                    {
-                        x: 1,
-                        y: 1,
-                        z: 1,
-                        ease: "back.out(2.2)",
-                        duration: 0.5,
-                    },
-                    ">-0.3"
-                )
-                .to(
-                    this.roomChildren.floor_items.scale,
-                    {
-                        x: 1,
-                        y: 1,
-                        z: 1,
-                        ease: "back.out(2.2)",
-                        duration: 0.5,
-                    },
-                    ">-0.2"
-                )
-                .to(
-                    this.roomChildren.desks.scale,
-                    {
-                        x: 1,
-                        y: 1,
-                        z: 1,
-                        ease: "back.out(2.2)",
-                        duration: 0.5,
-                    },
-                    ">-0.1"
-                )
-                .to(
-                    this.roomChildren.table_stuff.scale,
-                    {
-                        x: 1,
-                        y: 1,
-                        z: 1,
-                        ease: "back.out(2.2)",
-                        duration: 0.5,
-                    },
-                    ">-0.1"
-                )
-                .to(this.roomChildren.computer.scale, {
-                    x: 1,
-                    y: 1,
-                    z: 1,
+                                   )
+                
+                
+                .to(this.roomChildren.meja.scale, {
+                    x: 0.2,
+                    y: 0.2,
+                    z: 0.2,
                     ease: "back.out(2.2)",
-                    duration: 0.5,
-                })
-                .set(this.roomChildren.mini_floor.scale, {
-                    x: 1,
-                    y: 1,
-                    z: 1,
-                })
+                  
+                },"meja"
+            )
+              
                 .to(
-                    this.roomChildren.chair.scale,
+                    this.roomChildren.kursi.scale,
+                    {
+                        x: 5.7,
+                        y: 7.2,
+                        z: 4.2,
+                        ease: "back.out(2.2)",
+                     
+                    },
+                    "kursi"
+                )
+              
+                .to(
+                    this.roomChildren.pc.scale,
+                    {
+                        x: 1,
+                        y: 1,
+                        z: 0.5,
+                   
+                     
+                    },
+                  
+                )
+                .to(
+                    this.roomChildren.computer.scale,
+                    {
+                        x: 6,
+                        y: 6,
+                        z: 4.5,
+                   
+                     
+                    },
+                    "computer"
+                )
+                .to(
+                    this.roomChildren.keyboard.scale,
+                    {
+                        x: 0.3,
+                        y: 0.4,
+                        z: 0.1,
+                   
+                     
+                    },
+                  
+                )
+                .to(
+                    this.roomChildren.sofa.scale,
+                    {
+                        x: 5,
+                        y: 5,
+                        z: 4,
+                   
+                     
+                    },
+                  
+                )
+               
+                .to(
+                    this.roomChildren.natal1.scale,
+                    {
+                        x: 0.5,
+                        y: 0.6,
+                        z: 0.4,
+                   
+                     
+                    },
+                  "Natal1"
+                )
+            
+                .to(
+                    this.roomChildren.computer1.scale,
                     {
                         x: 1,
                         y: 1,
                         z: 1,
-                        ease: "back.out(2.2)",
-                        duration: 0.5,
+                   
+                     
                     },
-                    "chair"
+                  
                 )
-                .to(
-                    this.roomChildren.fish.scale,
-                    {
-                        x: 1,
-                        y: 1,
-                        z: 1,
-                        ease: "back.out(2.2)",
-                        duration: 0.5,
-                    },
-                    "chair"
-                )
-                .to(
-                    this.roomChildren.chair.rotation,
-                    {
-                        y: 4 * Math.PI + Math.PI / 4,
-                        ease: "power2.out",
-                        duration: 1,
-                    },
-                    "chair"
-                )
+                
                 .to(".arrow-svg-wrapper", {
                     opacity: 1,
                     onComplete: resolve,

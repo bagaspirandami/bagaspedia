@@ -19,6 +19,7 @@ export default class Resources extends EventEmitter {
 
         this.setLoaders();
         this.startLoading();
+        this.startLoadinge();
     }
 
     setLoaders() {
@@ -56,6 +57,43 @@ export default class Resources extends EventEmitter {
                 this.videoTexture[asset.name].encoding = THREE.sRGBEncoding;
 
                 this.singleAssetLoaded(asset, this.videoTexture[asset.name]);
+            }
+        }
+    }
+
+    singleAssetLoaded(asset, file) {
+        this.items[asset.name] = file;
+        this.loaded++;
+
+        if (this.loaded === this.queue) {
+            this.emit("ready");
+        }
+    }
+    startLoadinge() {
+        for (const asset of this.assets) {
+           
+            if (asset.type === "videoTexturee") {
+                this.video = {};
+                this.videoTexturee = {};
+
+                this.video[asset.name] = document.createElement("video");
+                this.video[asset.name].src = asset.path;
+                this.video[asset.name].muted = true;
+                this.video[asset.name].playsInline = true;
+                this.video[asset.name].autoplay = true;
+                this.video[asset.name].loop = true;
+                this.video[asset.name].play();
+
+                this.videoTexturee[asset.name] = new THREE.VideoTexture(
+                    this.video[asset.name]
+                );
+                // this.videoTexture[asset.name].flipY = false;
+                this.videoTexturee[asset.name].minFilter = THREE.NearestFilter;
+                this.videoTexturee[asset.name].magFilter = THREE.NearestFilter;
+                this.videoTexturee[asset.name].generateMipmaps = false;
+                this.videoTexturee[asset.name].encoding = THREE.sRGBEncoding;
+
+                this.singleAssetLoaded(asset, this.videoTexturee[asset.name]);
             }
         }
     }

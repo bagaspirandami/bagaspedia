@@ -9,4 +9,10 @@ export default [
         type: "videoTexture",
         path: "/textures/kda.mp4",
     },
+    {
+        name: "screen1",
+        type: "videoTexturee",
+        path: "",
+    },
 ];
+

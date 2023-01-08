@@ -50,9 +50,9 @@ export default class World extends EventEmitter {
     resize() {}
 
     update() {
-        if (this.room) {
-            this.room.update();
-        }
+        // if (this.room) {
+        //     this.room.update();
+        // }
         if (this.controls) {
             this.controls.update();
         }
